@@ -35,7 +35,31 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
 
-    function writeData() {
+    function writeDataUp() {
+        var date = new Date();
+
+        firebase.database().ref("Actions").set({
+            action: "up" + date.getTime()
+        })
+    }
+
+    function writeDataLeft() {
+        var date = new Date();
+
+        firebase.database().ref("Actions").set({
+            action: "up" + date.getTime()
+        })
+    }
+
+    function writeDataRight() {
+        var date = new Date();
+
+        firebase.database().ref("Actions").set({
+            action: "up" + date.getTime()
+        })
+    }
+
+    function writeDataDown() {
         var date = new Date();
 
         firebase.database().ref("Actions").set({
@@ -47,14 +71,14 @@
 
     <h1>Smart TV</h1>
     <div id = "container">
-        <button onclick = "writeData()">▲</button>
+        <button onclick = "writeDataUp()">▲</button>
     </div>
     <div id = "container">
-        <button onclick = "writeData()">◄</button>
-        <button onclick = "writeData()">►</button>
+        <button onclick = "writeDataLeft()">◄</button>
+        <button onclick = "writeDataRight()">►</button>
     </div>
     <div id = "container">
-        <button onclick = "writeData()">▼</button>
+        <button onclick = "writeDataDown()">▼</button>
     </div>
 
     </body>
