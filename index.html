@@ -21,9 +21,8 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
 
-    var date = new Date();
-
     function writeData() {
+        var date = new Date();
         firebase.database().ref("Actions").set({
             action: document.getElementById("sendField").value + date.getTime()
         })
