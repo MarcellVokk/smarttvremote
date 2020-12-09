@@ -1,4 +1,18 @@
 <html>
+<style>
+    button
+    {
+        font-size: 40px;
+        padding: 10px;
+        border-radius: 10px;
+        margin: 20px;
+    }
+    #container
+    {
+        text-align: center;
+    }
+</style>
+
     <head>
     </head>
 
@@ -23,16 +37,25 @@
 
     function writeData() {
         var date = new Date();
+
         firebase.database().ref("Actions").set({
-            action: document.getElementById("sendField").value + date.getTime()
+            action: "up" + date.getTime()
         })
     }
 
     </script>
 
-    <h1>User Database</h1>
-    <input type = "text" placeholder = "name" id = "sendField">
-    <button onclick = "writeData()">Send</button>
+    <h1>Smart TV</h1>
+    <div id = "container">
+        <button onclick = "writeData()">▲</button>
+    </div>
+    <div id = "container">
+        <button onclick = "writeData()">◄</button>
+        <button onclick = "writeData()">►</button>
+    </div>
+    <div id = "container">
+        <button onclick = "writeData()">▼</button>
+    </div>
 
     </body>
 </html>
