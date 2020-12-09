@@ -66,6 +66,14 @@
             action: "down" + date.getTime()
         })
     }
+        
+     function writeDataEnter() {
+        var date = new Date();
+
+        firebase.database().ref("Actions").set({
+            action: "enter" + date.getTime()
+        })
+    }
 
     </script>
 
@@ -75,6 +83,7 @@
     </div>
     <div id = "container">
         <button onclick = "writeDataLeft()">◄</button>
+        <button onclick = "writeDataEnter()">○</button>
         <button onclick = "writeDataRight()">►</button>
     </div>
     <div id = "container">
