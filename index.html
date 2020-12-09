@@ -47,7 +47,7 @@
         var date = new Date();
 
         firebase.database().ref("Actions").set({
-            action: "up" + date.getTime()
+            action: "left" + date.getTime()
         })
     }
 
@@ -55,7 +55,7 @@
         var date = new Date();
 
         firebase.database().ref("Actions").set({
-            action: "up" + date.getTime()
+            action: "right" + date.getTime()
         })
     }
 
@@ -63,7 +63,7 @@
         var date = new Date();
 
         firebase.database().ref("Actions").set({
-            action: "up" + date.getTime()
+            action: "down" + date.getTime()
         })
     }
 
