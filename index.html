@@ -1,0 +1,39 @@
+<html>
+    <head>
+    </head>
+
+    <body>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
+
+    <script>
+    var firebaseConfig = {
+    apiKey: "AIzaSyCO8Wu3Fuc4azdDUgDMizVtWu0jCs5WYCs",
+    authDomain: "smarttv-2967e.firebaseapp.com",
+    projectId: "smarttv-2967e",
+    storageBucket: "smarttv-2967e.appspot.com",
+    messagingSenderId: "922429717222",
+    appId: "1:922429717222:web:e22929b5b861c4d70c5927",
+    measurementId: "G-ZTJ4HFFFGP"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    var date = new Date();
+
+    function writeData() {
+        firebase.database().ref("Actions").set({
+            action: document.getElementById("sendField").value + date.getTime()
+        })
+    }
+
+    </script>
+
+    <h1>User Database</h1>
+    <input type = "text" placeholder = "name" id = "sendField">
+    <button onclick = "writeData()">Send</button>
+
+    </body>
+</html>
