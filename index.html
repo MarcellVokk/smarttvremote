@@ -1,19 +1,8 @@
 <html>
-<style>
-    button
-    {
-        font-size: 100px;
-        padding: 80px;
-        border-radius: 10px;
-        margin: 20px;
-    }
-    #container
-    {
-        text-align: center;
-    }
-</style>
 
     <head>
+        <title>Remote</title>
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
@@ -67,7 +56,7 @@
         })
     }
         
-     function writeDataEnter() {
+    function writeDataEnter() {
         var date = new Date();
 
         firebase.database().ref("Actions").set({
@@ -75,20 +64,24 @@
         })
     }
 
+    function writeDataBack() {
+        var date = new Date();
+
+        firebase.database().ref("Actions").set({
+            action: "back" + date.getTime()
+        })
+    }
+
     </script>
 
-    <h1>Smart TV</h1>
-    <div id = "container">
-        <button onclick = "writeDataUp()">▲</button>
-    </div>
-    <div id = "container">
-        <button onclick = "writeDataLeft()">◄</button>
-        <button onclick = "writeDataEnter()">○</button>
-        <button onclick = "writeDataRight()">►</button>
-    </div>
-    <div id = "container">
-        <button onclick = "writeDataDown()">▼</button>
-    </div>
-
     </body>
+
+    <div class = "box">
+        <button class="buttonUp" onclick = "writeDataUp()">▲</button>
+        <button class="buttonDown" onclick = "writeDataDown()">▼</button>
+        <button class="buttonLeft" onclick = "writeDataLeft()">◄</button>
+        <button class="buttonRight" onclick = "writeDataRight()">►</button>
+        <button class="buttonEnter" onclick = "writeDataEnter()">○</button>
+        <button class="buttonBack" onclick = "writeDataBack()">↩️</button>
+    </div>
 </html>
