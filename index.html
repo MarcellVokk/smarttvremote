@@ -72,6 +72,14 @@
         })
     }
 
+    function writeDataSendSearch() {
+        var date = new Date();
+
+        firebase.database().ref("Actions").set({
+            action: "search:" + document.getElementById("searchInput").value
+        })
+    }
+
     </script>
 
     </body>
@@ -83,5 +91,10 @@
         <button class="buttonRight" onclick = "writeDataRight()">►</button>
         <button class="buttonEnter" onclick = "writeDataEnter()">○</button>
         <button class="buttonBack" onclick = "writeDataBack()">↩️</button>
+    </div>
+
+    <div class = "typeInput">
+        <input id="searchInput" class="searchInput">
+        <button class="sendSearch" onclick = "writeDataSendSearch()">🔍</button>
     </div>
 </html>
