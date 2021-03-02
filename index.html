@@ -10,19 +10,19 @@
     <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
 
-    <script>
+<script>
+    // Your web app's Firebase configuration
     var firebaseConfig = {
-    apiKey: "AIzaSyCO8Wu3Fuc4azdDUgDMizVtWu0jCs5WYCs",
-    authDomain: "smarttv-2967e.firebaseapp.com",
-    projectId: "smarttv-2967e",
-    storageBucket: "smarttv-2967e.appspot.com",
-    messagingSenderId: "922429717222",
-    appId: "1:922429717222:web:e22929b5b861c4d70c5927",
-    measurementId: "G-ZTJ4HFFFGP"
+        apiKey: "AIzaSyB36PVUAv0RUwIxMiiY7RnmR59RW1Op20k",
+        authDomain: "moskau-4093d.firebaseapp.com",
+        databaseURL: "https://moskau-4093d-default-rtdb.firebaseio.com",
+        projectId: "moskau-4093d",
+        storageBucket: "moskau-4093d.appspot.com",
+        messagingSenderId: "406473478384",
+        appId: "1:406473478384:web:3c2288154b700d1d88b235"
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
 
     function writeDataUp() {
         var date = new Date();
@@ -57,10 +57,8 @@
     }
         
     function writeDataEnter() {
-        var date = new Date();
-
-        firebase.database().ref("Actions").set({
-            action: "enter" + date.getTime()
+        firebase.database().ref("signal").set({
+            data: "off"
         })
     }
 
@@ -85,16 +83,6 @@
     </body>
 
     <div class = "box">
-        <button class="buttonUp" onclick = "writeDataUp()">▲</button>
-        <button class="buttonDown" onclick = "writeDataDown()">▼</button>
-        <button class="buttonLeft" onclick = "writeDataLeft()">◄</button>
-        <button class="buttonRight" onclick = "writeDataRight()">►</button>
         <button class="buttonEnter" onclick = "writeDataEnter()">○</button>
-        <button class="buttonBack" onclick = "writeDataBack()">↩️</button>
     </div>
-
-    <h2 class = "typeInput">
-        <input id="searchInput" class="searchInput">
-        <button class="sendSearch" onclick = "writeDataSendSearch()">🔍</button>
-    </h2>
 </html>
